@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Brototype-Todo/static/css/main.585737d5.css",
+    "main.js": "/Brototype-Todo/static/js/main.c2d0bd43.js",
+    "index.html": "/Brototype-Todo/index.html",
+    "main.585737d5.css.map": "/Brototype-Todo/static/css/main.585737d5.css.map",
+    "main.c2d0bd43.js.map": "/Brototype-Todo/static/js/main.c2d0bd43.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.585737d5.css",
+    "static/js/main.c2d0bd43.js"
+  ]
+}
