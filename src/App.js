@@ -5,14 +5,29 @@ function App() {
   const [toDos, setToDos] = useState([])
   const [toDo, setToDo] = useState('')
 
+
+  // function clearTextBox(textBox){
+  //   textBox.value =""
+  // }
+
   // const [Delete, setDelete] = useState(toDos)
 
-   const Del =(id)=>{
-    const newTask =[...toDos]
-    newTask.splice(id,1)
-    setToDos(newTask)
+//    const Del =(id)=>{
+//     // const newTask =[...toDos]
+//     // newTask.splice(id,1)
+//     setToDos(
+      
+//       toDos.filter((item)=>
+    
+      
    
-}
+//         toDos.splice(item.id,1)
+//       )
+//        )
+    
+    
+   
+// }
 
   return (
     <div className="app">
@@ -24,8 +39,11 @@ function App() {
         <h2>Whoop, it's Wednesday 🌝 ☕ </h2>
       </div>
       <div className="input">
-        <input value={toDo} onChange={(e) => { setToDo(e.target.value) }} type="text" placeholder="🖊️ Add item..." />
-        <i onClick={() => { setToDos([...toDos, { id: Date.now(), text: toDo, status: false }]) }} className="fas fa-plus"></i>
+        <input value={toDo}  onChange={(e) => { setToDo(e.target.value) }} type="text" placeholder="🖊️ Add item..." />
+        <i onClick={() => {
+          if(toDo===""){
+            alert("Text enter chey myre")
+          }else{ setToDos([...toDos, { id: Date.now(), text: toDo, status: false }])} }} className="fas fa-plus"></i>
       </div>
       <div className="todos">
 
@@ -59,11 +77,26 @@ function App() {
             <div className="right">
 
               {/* delete button  */}
-              <i
-               onClick={()=>Del(toDos.id)}
+              <i 
+               onClick={(e)=>
+
+                {
+                  let index= toDos.findIndex(obj=>{return obj.id==e.target.id})
+                  // console.log(obj.id)
+                  // console.log(e.target.id)
+                  // console.log(index)
+                  if (index !== -1) {
+                    console.log("entered")
+                    toDos.splice(index,1);
+                    setToDos([...toDos]);
+                }
+                else{
+                  console.log("Item not found")
+                }
+              }
+              }
             
-           
-                 className="fas fa-times"></i>
+              id={obj.id}   className="fas fa-times"></i>
 
             </div>
           </div>)
